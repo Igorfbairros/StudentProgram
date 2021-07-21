@@ -1,12 +1,14 @@
 package entities;
 
-public class Disciplinas {
+
+/*Essa classe Disciplina servirá para todos os objetos e instancias de notas e materias */
+public class Disciplina {
 
     private double nota;
     private String disciplina;
 
 
-    public Disciplinas(double nota, String disciplina) {
+    public Disciplina(double nota, String disciplina) {
         this.nota = nota;
         this.disciplina = disciplina;
     }
@@ -29,6 +31,28 @@ public class Disciplinas {
         this.disciplina = disciplina;
     }
 
+
+    public Disciplina() {
+    }
+
+    public Disciplina nota(double nota) {
+        setNota(nota);
+        return this;
+    }
+
+    public Disciplina disciplina(String disciplina) {
+        setDisciplina(disciplina);
+        return this;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "{" +
+            " nota='" + getNota() + "'" +
+            ", disciplina='" + getDisciplina() + "'" +
+            "}";
+    }
     
 
 }

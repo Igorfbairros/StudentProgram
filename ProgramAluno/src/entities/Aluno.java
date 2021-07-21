@@ -1,5 +1,8 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno{
 
     private String nome;
@@ -11,33 +14,23 @@ public class Aluno{
     private String dataMatricula;
     private String nomeEscola;
     private String serieMatriculado;
+    private ArrayList<Disciplina> disciplinas;
 
-    private Disciplinas disciplina = new Disciplinas();
-
-    public void setDisciplinas(Disciplinas disciplinas) {
-        this.disciplina = disciplinas;
-    }
-    public Disciplinas getDisciplinas() {
-        return disciplina;
-    }
+    
 
 
-    public Aluno() {
+    public void setDisciplinas(ArrayList<Disciplina> disciplinas){
+        this.disciplinas = disciplinas;
     }
 
-    public Aluno(String nome, String dataNascimento, String registroGeral, String numeroCpf, String nomeMae, String nomePai, String dataMatricula, String nomeEscola, String serieMatriculado) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.registroGeral = registroGeral;
-        this.numeroCpf = numeroCpf;
-        this.nomeMae = nomeMae;
-        this.nomePai = nomePai;
-        this.dataMatricula = dataMatricula;
-        this.nomeEscola = nomeEscola;
-        this.serieMatriculado = serieMatriculado;
-
-
+    public List<Disciplina> getDisciplinas(){
+        return disciplinas;
     }
+
+
+
+
+    
 
     public String getNome() {
         return this.nome;
@@ -113,8 +106,14 @@ public class Aluno{
         this.serieMatriculado = serieMatriculado;
     }
 
-    public Double getMediaNotas(){
-        return (disciplina.getNota1() + disciplina.getNota2() + disciplina.getNota3() + disciplina.getNota4()) / 4;
+    public double getMediaNotas(){
+
+        double somaNotas = 0.0;
+        for(Disciplina disciplina : disciplinas){
+            somaNotas += disciplina.getNota();
+
+        }
+        return somaNotas / disciplinas.size();
     }
 
     public boolean getMediaAluno(){
@@ -141,7 +140,7 @@ public class Aluno{
             ", dataMatricula='" + getDataMatricula() + "'" +
             ", nomeEscola='" + getNomeEscola() + "'" +
             ", serieMatriculado='" + getSerieMatriculado() + "'" +
-            ", disciplina='" + getDisciplinas() + "'" +
+            ", disciplina='" + "'" +
             "}";
     }
     
