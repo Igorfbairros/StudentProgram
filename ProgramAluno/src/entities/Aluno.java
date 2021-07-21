@@ -1,7 +1,7 @@
 package entities;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Aluno{
 
@@ -14,7 +14,7 @@ public class Aluno{
     private String dataMatricula;
     private String nomeEscola;
     private String serieMatriculado;
-    private ArrayList<Disciplina> disciplinas;
+    private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     
 
@@ -23,7 +23,7 @@ public class Aluno{
         this.disciplinas = disciplinas;
     }
 
-    public List<Disciplina> getDisciplinas(){
+    public ArrayList<Disciplina> getDisciplinas(){
         return disciplinas;
     }
 

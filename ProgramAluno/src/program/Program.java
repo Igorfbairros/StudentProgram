@@ -36,25 +36,31 @@ public class Program {
         disciplina1.setDisciplina("Bonco de dados");
         disciplina1.setNota(90.0);
 
-        aluno0.getDisciplinas().add(disciplina1);
+        
 
         Disciplina disciplina2 = new Disciplina();
         disciplina2.setDisciplina("Matematica");
         disciplina2.setNota(80.0);
 
-        aluno0.getDisciplinas().add(disciplina2);
-
         Disciplina disciplina3 = new Disciplina();
         disciplina3.setDisciplina("Geografia");
         disciplina3.setNota(60.0);
-
-        aluno0.getDisciplinas().add(disciplina3);
 
         Disciplina disciplina4 = new Disciplina();
         disciplina4.setDisciplina("Java web");
         disciplina4.setNota(40.0);
 
+        aluno0.getDisciplinas().add(disciplina1);
+        aluno0.getDisciplinas().add(disciplina2);
+        aluno0.getDisciplinas().add(disciplina3);
         aluno0.getDisciplinas().add(disciplina4);
+        
+        System.out.println(aluno0);
+        System.out.println("Media Aluno = " + aluno0.getMediaNotas());
+        
+
+
+
 
 
         
