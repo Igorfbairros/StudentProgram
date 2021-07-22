@@ -31,8 +31,9 @@ public class Program {
         aluno0.setDataMatricula(dataMatricula);
         aluno0.setNomeEscola(nomeEscola);
         aluno0.setDataMatricula(serieMatriculado);*/
-
-        for(int pos = 1; pos <= 4; pos++){
+        String numDisciplinas = JOptionPane.showInputDialog("How much class you would like add? ");
+        
+        for(int pos = 1; pos <= Integer.valueOf(numDisciplinas); pos++){
             String nomeDiscplina = JOptionPane.showInputDialog("Nome da Disciplina "+pos+"?");
             String notaDiscplina = JOptionPane.showInputDialog("Nota da Disciplina "+pos+"?");
 
@@ -46,8 +47,17 @@ public class Program {
         int escolha = JOptionPane.showConfirmDialog(null,"Deseja remover alguma discplina ? ");
 
         if(escolha == 0){
-            String discplinaRemover = JOptionPane.showInputDialog("Qual a Disciplina 1, 2, 3, ou 4," );
-            aluno0.getDisciplinas().remove(Integer.valueOf(discplinaRemover).intValue()-1);
+
+            int continuarRemover = 0;
+            int posicao = 1;
+
+            while(continuarRemover == 0){
+                String discplinaRemover = JOptionPane.showInputDialog("Qual a Disciplina 1, 2, 3, ou 4," );
+                aluno0.getDisciplinas().remove(Integer.valueOf(discplinaRemover).intValue()-posicao);
+                posicao++;
+                continuarRemover = JOptionPane.showConfirmDialog(null, "Keep removing ?");
+                
+            }
 
 
         }
@@ -55,6 +65,8 @@ public class Program {
         
         System.out.println(aluno0);
         System.out.println("Media Aluno = " + aluno0.getMediaNotas());
+        System.out.println("Aproved or not = " + aluno0.getAlunoAprovado());
+        System.out.println("Disciplinas = " + aluno0.getDisciplinas());
         
 
 
