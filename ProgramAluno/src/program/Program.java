@@ -1,5 +1,8 @@
 package program;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import entities.Aluno;
@@ -8,7 +11,15 @@ import entities.Disciplina;
 
 public class Program {
     public static void main(String[] args) {
-        String name = JOptionPane.showInputDialog("Your Name: ");
+
+        List<Aluno> alunos = new ArrayList<Aluno>();
+
+        
+        for(int qtd = 0; qtd <= 2; qtd++){
+
+        
+
+        String name = JOptionPane.showInputDialog("Your Name do aluno "+ qtd+ "°:");
        /* String dataDeNascimento = JOptionPane.showInputDialog("Born Date: ");
         String registroGeral = JOptionPane.showInputDialog("Tax Id: ");
         String numCpf = JOptionPane.showInputDialog("Cpf: ");
@@ -61,24 +72,38 @@ public class Program {
 
 
         }
-        
-        
-        System.out.println(aluno0);
-        System.out.println("Media Aluno = " + aluno0.getMediaNotas());
-        System.out.println("Aproved or not = " + aluno0.getAlunoAprovado());
-        System.out.println("Disciplinas = " + aluno0.getDisciplinas());
-        
-
-
-
-
-
-        
-
-
-        System.out.println(aluno0.toString());
+        alunos.add(aluno0);
+    
     }
+    
+    for(Aluno aluno: alunos){
 
-    
-    
+        if(aluno.getNome().equalsIgnoreCase("Alex")){
+
+            alunos.remove(aluno);
+            break;
+            
+            
+
+        }else{
+            System.out.println(aluno);
+            System.out.println("Media Aluno = " + aluno.getMediaNotas());
+            System.out.println("Aproved or not = " + aluno.getAlunoAprovado());
+            System.out.println("Disciplinas = " + aluno.getDisciplinas());
+            System.out.println("======================================================");
+
+        }
+    }
+    for(Aluno aluno : alunos){
+        System.out.println("Alunos que sobraram na lista");
+        System.out.println(aluno.getNome());
+        System.out.println("Suas Materias");
+
+        for(Disciplina discplina : aluno.getDisciplinas()){
+            System.out.println(discplina.getDisciplina());
+        }
+    }
+        
+}
+
 }
