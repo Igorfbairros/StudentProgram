@@ -74,36 +74,25 @@ public class Program {
         }
         alunos.add(aluno0);
     
-    }
+        }
+
+        for(int pos = 0; pos < alunos.size(); pos++){
+            Aluno aluno = alunos.get(pos);
+
+            System.out.println("Aluno = " + aluno.getNome());
+            System.out.println("Media do Aluno = " + aluno.getMediaNotas());
+            System.out.println("Resultado do Aluno = " + aluno.getAlunoAprovado());
+            System.out.println("===================================================");
+
+            for(Disciplina disc : aluno.getDisciplinas()){
+                System.out.println("Disciplina = " + disc.getDisciplina() + "Nota =" + disc.getNota());
+            }
+        }
     
-    for(Aluno aluno: alunos){
-
-        if(aluno.getNome().equalsIgnoreCase("Alex")){
-
-            alunos.remove(aluno);
-            break;
-            
-            
-
-        }else{
-            System.out.println(aluno);
-            System.out.println("Media Aluno = " + aluno.getMediaNotas());
-            System.out.println("Aproved or not = " + aluno.getAlunoAprovado());
-            System.out.println("Disciplinas = " + aluno.getDisciplinas());
-            System.out.println("======================================================");
-
-        }
     }
-    for(Aluno aluno : alunos){
-        System.out.println("Alunos que sobraram na lista");
-        System.out.println(aluno.getNome());
-        System.out.println("Suas Materias");
-
-        for(Disciplina discplina : aluno.getDisciplinas()){
-            System.out.println(discplina.getDisciplina());
-        }
-    }
+   
+}
+    
         
-}
 
-}
+
