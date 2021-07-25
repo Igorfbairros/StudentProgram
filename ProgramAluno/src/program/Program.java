@@ -15,7 +15,7 @@ public class Program {
         List<Aluno> alunos = new ArrayList<Aluno>();
 
         
-        for(int qtd = 0; qtd <= 2; qtd++){
+        for(int qtd = 1; qtd <= 2; qtd++){
 
         
 
@@ -77,7 +77,22 @@ public class Program {
         }
 
         for(int pos = 0; pos < alunos.size(); pos++){
+
             Aluno aluno = alunos.get(pos);
+
+            if(aluno.getNome().equalsIgnoreCase("alex")){
+                Aluno trocar = new Aluno();
+                trocar.setNome("Aluno foi treocado");
+
+                Disciplina disciplina = new Disciplina();
+                disciplina.setDisciplina("Matematica");
+                disciplina.setNota(89.9);
+
+                trocar.getDisciplinas().add(disciplina);
+               alunos.set(pos, trocar);
+               aluno = alunos.get(pos);
+
+            }
 
             System.out.println("Aluno = " + aluno.getNome());
             System.out.println("Media do Aluno = " + aluno.getMediaNotas());
