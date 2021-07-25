@@ -1,6 +1,9 @@
 package entities;
 
+import java.io.ObjectInputFilter.Status;
 import java.util.ArrayList;
+
+import cursojava.constantes.StatusAluno;
 
 
 public class Aluno{
@@ -128,13 +131,13 @@ public class Aluno{
             double media = this.getMediaNotas();
             if(media >= 50){
                 if(media >= 70){
-                    return "Aluno está Aprovado";
+                    return StatusAluno.APROVADO;
                 }else{
-                    return "Aluno está em Recuperação";
+                    return StatusAluno.RECUPERACAO;
                 }
 
             }else{
-                return "Aluno está reprovado";
+                return StatusAluno.REPROVADO;
             }
         
 
