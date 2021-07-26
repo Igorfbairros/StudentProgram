@@ -1,6 +1,7 @@
 package program;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -14,9 +15,15 @@ public class Program {
     public static void main(String[] args) {
 
         List<Aluno> alunos = new ArrayList<Aluno>();
+
+        HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
+
+
+        /*
         List<Aluno> alunosAprovados = new ArrayList<Aluno>();
         List<Aluno> alunosRecuperacao = new ArrayList<Aluno>();
         List<Aluno> alunosReprovados = new ArrayList<Aluno>();
+        */
 
         
         for(int qtd = 1; qtd <= 5; qtd++){
@@ -79,28 +86,31 @@ public class Program {
         alunos.add(aluno0);
     
         }
+        maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
+        maps.put(StatusAluno.RECUPERACAO, new ArrayList<Aluno>());
+        maps.put(StatusAluno.REPROVADO, new ArrayList<Aluno>());
 
         for(Aluno aluno: alunos){
             
             if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)){
-                alunosAprovados.add(aluno);
+                maps.get(StatusAluno.APROVADO).add(aluno);
             }else if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)){
-                alunosRecuperacao.add(aluno);
+                maps.get(StatusAluno.RECUPERACAO).add(aluno);
             }else{
-                alunosReprovados.add(aluno);
+                maps.get(StatusAluno.REPROVADO).add(aluno);
             }
         }
 
         System.out.println("------------Alunos Aprovados---------------------");
-        for(Aluno aluno: alunosAprovados){
-            System.out.println("Aprovados = " + aluno.getNome() + aluno.getMediaNotas());
+        for(Aluno aluno: maps.get(StatusAluno.APROVADO)){
+            System.out.println("Aprovados = " + aluno.getNome()+" Media = " + aluno.getMediaNotas());
         }
         System.out.println("------------Alunos em Recuperação-----------------");
-        for(Aluno aluno: alunosRecuperacao){
-            System.out.println("Recuperação = "+ aluno.getNome()+ aluno.getMediaNotas());
+        for(Aluno aluno: maps.get(StatusAluno.RECUPERACAO)){
+            System.out.println("Recuperação = "+ aluno.getNome()+"Media = "+ aluno.getMediaNotas());
         }
-        for(Aluno aluno: alunosReprovados){
-            System.out.println("Reprovado = " + aluno.getNome()+ aluno.getMediaNotas());
+        for(Aluno aluno: maps.get(StatusAluno.REPROVADO)){
+            System.out.println("Reprovado = " + aluno.getNome()+ "Media = "+ aluno.getMediaNotas());
         }
     
     }
