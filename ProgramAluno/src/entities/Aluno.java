@@ -1,19 +1,14 @@
 package entities;
 
-import java.io.ObjectInputFilter.Status;
+
 import java.util.ArrayList;
 
 import cursojava.constantes.StatusAluno;
 
 
-public class Aluno{
+public class Aluno extends Pessoa{
 
-    private String nome;
-    private String dataNascimento;
-    private String registroGeral;
-    private String numeroCpf;
-    private String nomeMae;
-    private String nomePai;
+    
     private String dataMatricula;
     private String nomeEscola;
     private String serieMatriculado;
@@ -30,6 +25,19 @@ public class Aluno{
         return disciplinas;
     }
 
+    public Aluno(){/**Cria os dados na memoria - Sendo padrão java */
+
+    }
+    public Aluno(String nomePadrao){
+        nome = nomePadrao;
+    }
+
+    public Aluno(String nomePadrao, int idadePadrao){
+        super.nome =  nomePadrao;
+        this.idade =  idadePadrao;
+    }
+    
+
 
 
 
@@ -42,32 +50,14 @@ public class Aluno{
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-
-
-    public String getDataNascimento() {
-        return this.dataNascimento;
-    }
-
-    public void setDataNascimento(String dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getRegistroGeral() {
+     public String getRegistroGeral() {
         return this.registroGeral;
     }
 
     public void setRegistroGeral(String registroGeral) {
         this.registroGeral = registroGeral;
     }
-
-    public String getNumeroCpf() {
-        return this.numeroCpf;
-    }
-
-    public void setNumeroCpf(String numeroCpf) {
-        this.numeroCpf = numeroCpf;
-    }
+    
 
     public String getNomeMae() {
         return this.nomeMae;
@@ -143,23 +133,13 @@ public class Aluno{
 
     }
 
+        @Override
+        public String toString() {
+            return "Aluno [dataMatricula=" + dataMatricula + ", disciplinas=" + disciplinas + ", nomeEscola="
+                    + nomeEscola + ", serieMatriculado=" + serieMatriculado + "]";
+        }
 
-
-    @Override
-    public String toString() {
-        return "{" +
-            " nome='" + getNome() + "'" +
-            ", dataNascimento='" + getDataNascimento() + "'" +
-            ", registroGeral='" + getRegistroGeral() + "'" +
-            ", numeroCpf='" + getNumeroCpf() + "'" +
-            ", nomeMae='" + getNomeMae() + "'" +
-            ", nomePai='" + getNomePai() + "'" +
-            ", dataMatricula='" + getDataMatricula() + "'" +
-            ", nomeEscola='" + getNomeEscola() + "'" +
-            ", serieMatriculado='" + getSerieMatriculado() + "'" +
-            ", disciplina='" + "'" +
-            "}";
-    }
+    
     
     }
 
