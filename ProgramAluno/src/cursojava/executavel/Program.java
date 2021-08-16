@@ -1,4 +1,4 @@
-package program;
+package cursojava.executavel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,10 +9,24 @@ import cursojava.constantes.StatusAluno;
 
 import entities.Aluno;
 import entities.Disciplina;
+import entities.Secretario;
 
 
 public class Program {
     public static void main(String[] args) {
+
+        String login = JOptionPane.showInputDialog("Entre com a login");
+        String senha = JOptionPane.showInputDialog("Entre com a senha");
+
+
+        Secretario secretario = new Secretario();/* working directly with the object */
+        secretario.setLogin(login);
+        secretario.setSenha(senha);
+
+        if(secretario.autenticar()){
+
+            
+
 
         List<Aluno> alunos = new ArrayList<Aluno>();
 
@@ -113,8 +127,10 @@ public class Program {
             System.out.println("Reprovado = " + aluno.getNome()+ "Media = "+ aluno.getMediaNotas());
         }
     
+    }else{
+        JOptionPane.showMessageDialog(null, "Acesso não permetido");
     }
-   
+}   
 }
     
         

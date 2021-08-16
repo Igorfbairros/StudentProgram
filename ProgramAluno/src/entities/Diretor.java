@@ -46,6 +46,10 @@ public class Diretor extends Pessoa{
                 + tempoDirecão + "]";
     }
 
+    public double salario(){
+        return 3900.78;
+    }
+
    
 
 

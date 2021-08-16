@@ -1,10 +1,15 @@
 package entities;
 
-public class Secretario  extends Pessoa{
+import interfaces.PermitirAcesso;
+
+public class Secretario  extends Pessoa implements PermitirAcesso{
 
     private String registro;
     private String nivelCargo;
     private String experiencia;
+
+    private String login;
+    private String senha;
 
 
     public Secretario() {
@@ -31,6 +36,7 @@ public class Secretario  extends Pessoa{
         return this.nivelCargo;
     }
 
+
     public void setNivelCargo(String nivelCargo) {
         this.nivelCargo = nivelCargo;
     }
@@ -49,6 +55,35 @@ public class Secretario  extends Pessoa{
     public String toString() {
         return "Secretario [experiencia=" + experiencia + ", nivelCargo=" + nivelCargo + ", registro=" + registro + "]";
     }
+
+    public double salario(){
+        return 1800.00;
+    }
+
+
+
+    @Override
+    public boolean autenticar() {
+        // TODO Auto-generated method stub
+        return login.equals("admin") && senha.equals("admin");
+    }
+
+    public String getLogin(){
+        return login;
+    }
+    public void setLogin(String login){
+        this.login = login;
+    }
+
+    public String getSenha(){
+        return senha;
+    }
+
+    public void setSenha(String senha){
+        this.senha = senha;
+    }
+
+    
     
 
     

@@ -2,7 +2,7 @@ package entities;
 
 
 // Classe PAI, MASTER, SuperCLass(Atributos comum em todos os Projetos)
-public class Pessoa{
+public abstract class Pessoa{
     protected String nome;
     protected int idade;
     protected String dateNascimento;
@@ -10,6 +10,8 @@ public class Pessoa{
     protected String numeroCPF;
     protected String nomePai;
     protected  String nomeMae;
+    /*Abstract method is required in the parent class and is required for child classes */
+    public abstract double salario();
 
 
     public String getNome() {
@@ -66,6 +68,10 @@ public class Pessoa{
 
     public void setNomeMae(String nomeMae) {
         this.nomeMae = nomeMae;
+    }
+
+    public boolean pessoaMaiorDeIdade(){
+        return idade >= 18;
     }
 
 

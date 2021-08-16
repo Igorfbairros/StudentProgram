@@ -140,6 +140,20 @@ public class Aluno extends Pessoa{
         }
 
     
+        public boolean pessoaMaiorDeIdade() {
+            // TODO Auto-generated method stub
+            return idade >= 21;
+        }
+
+        public String msgMaiorIdade(){
+            return this.pessoaMaiorDeIdade()? "Obaa Aluno é maior de idade": "Ixii Aluno é menor de idade ";
+        }
+
+        public double salario(){
+            return 1500.00;
+        }
+
+    
     
     }
 
