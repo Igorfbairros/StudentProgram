@@ -19,11 +19,11 @@ public class Program {
         String senha = JOptionPane.showInputDialog("Entre com a senha");
 
 
-        Secretario secretario = new Secretario();/* working directly with the object */
-        secretario.setLogin(login);
-        secretario.setSenha(senha);
+    //  Secretario secretario = new Secretario();/* working directly with the object */
+    //  secretario.setLogin(login);
+    //  secretario.setSenha(senha);*/// Was put direcly below
 
-        if(secretario.autenticar()){
+        if(new Secretario().autenticar(login, senha)){ // If return login and senha are true. It can be accessed
 
             
 
@@ -128,7 +128,7 @@ public class Program {
         }
     
     }else{
-        JOptionPane.showMessageDialog(null, "Acesso não permetido");
+        JOptionPane.showMessageDialog(null, "Access no allowd");
     }
 }   
 }
