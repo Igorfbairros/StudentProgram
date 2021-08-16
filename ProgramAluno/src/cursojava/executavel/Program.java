@@ -10,6 +10,7 @@ import cursojava.constantes.StatusAluno;
 import entities.Aluno;
 import entities.Disciplina;
 import entities.Secretario;
+import interfaces.PermitirAcesso;
 
 
 public class Program {
@@ -19,11 +20,10 @@ public class Program {
         String senha = JOptionPane.showInputDialog("Entre com a senha");
 
 
-    //  Secretario secretario = new Secretario();/* working directly with the object */
-    //  secretario.setLogin(login);
-    //  secretario.setSenha(senha);*/// Was put direcly below
+    PermitirAcesso permitirAcesso = new Secretario(login, senha);
+    
 
-        if(new Secretario().autenticar(login, senha)){ // If return login and senha are true. It can be accessed
+        if(permitirAcesso.autenticar()){ // If return login and senha are true. It can be accessed
 
             
 
