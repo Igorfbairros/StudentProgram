@@ -1,9 +1,24 @@
 package entities;
-public class Diretor extends Pessoa{
+
+import interfaces.PermitirAcesso;
+
+public class Diretor extends Pessoa implements PermitirAcesso{
 
     private String registroEducacao;
     private int tempoDirecão;
     private String Titulacao;
+
+    private String login;
+    private String senha;
+
+    public Diretor(String login, String senha){
+        this.login = login;
+        this.senha = senha;
+
+    }
+
+    public Diretor(){
+    }
 
 
     public Diretor(String registroEducacao, int tempoDirecão, String Titulacao) {
@@ -11,11 +26,6 @@ public class Diretor extends Pessoa{
         this.tempoDirecão = tempoDirecão;
         this.Titulacao = Titulacao;
     }
-
-    public Diretor() {
-    }
-
-
     public String getRegistroEducacao() {
         return this.registroEducacao;
     }
@@ -48,6 +58,18 @@ public class Diretor extends Pessoa{
 
     public double salario(){
         return 3900.78;
+    }
+
+    @Override
+    public boolean autenticar(String login, String senha){
+        this.login = login;
+        this.senha = senha;
+        return autenticar();
+    }
+
+    @Override
+    public boolean autenticar(){
+        return login.equals("admin") && senha.equals("admin");
     }
 
    

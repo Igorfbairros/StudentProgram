@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+
+import classeauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
 
 import entities.Aluno;
@@ -19,11 +21,12 @@ public class Program {
         String login = JOptionPane.showInputDialog("Entre com a login");
         String senha = JOptionPane.showInputDialog("Entre com a senha");
 
-
-    PermitirAcesso permitirAcesso = new Secretario(login, senha);
+        
+        // PermitirAcesso permitirAcesso = new Secretario(login, senha);
     
 
-        if(permitirAcesso.autenticar()){ // If return login and senha are true. It can be accessed
+        if(new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()){ //I will lock the contract to authorize only those who actually have the 100% legitimate contract
+
 
             
 
