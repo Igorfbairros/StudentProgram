@@ -1,8 +1,11 @@
 package cursojava.executavel;
 
+import java.io.File;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -19,6 +22,12 @@ import entities.Disciplina;
 public class Program {
     public static void main(String[] args) {
 
+        try{
+
+            File fil = new File("c://lines.txt"); // take out c:// you'll see the Error
+            Scanner sc = new Scanner(fil);
+            
+
         String login = JOptionPane.showInputDialog("Entre com a login");
         String senha = JOptionPane.showInputDialog("Entre com a senha");
 
@@ -32,8 +41,8 @@ public class Program {
 
             
 
-
-        List<Aluno> alunos = new ArrayList<Aluno>();
+            // null to show nullPoiterExeption
+        List<Aluno> alunos = new ArrayList<Aluno>();// null;// new ArrayList<Aluno>();
 
         HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
@@ -45,12 +54,14 @@ public class Program {
         */
 
         
-        for(int qtd = 1; qtd <= 5; qtd++){
+        for(int qtd = 1; qtd <= 1; qtd++){
 
         
 
         String name = JOptionPane.showInputDialog("Your Name do aluno "+ qtd+ "°:");
-       /* String dataDeNascimento = JOptionPane.showInputDialog("Born Date: ");
+        String idade = JOptionPane.showInputDialog("Qual a sua idade");
+        /*
+        String dataDeNascimento = JOptionPane.showInputDialog("Born Date: ");
         String registroGeral = JOptionPane.showInputDialog("Tax Id: ");
         String numCpf = JOptionPane.showInputDialog("Cpf: ");
         String nomeMae = JOptionPane.showInputDialog("Mother name: ");
@@ -64,6 +75,7 @@ public class Program {
         Aluno aluno0 = new Aluno();
         
         aluno0.setNome(name);
+        aluno0.setIdade(Integer.valueOf(idade));
        /* aluno0.setDataNascimento(dataDeNascimento);
         aluno0.setRegistroGeral(registroGeral);
         aluno0.setNumeroCpf(numCpf);
@@ -72,16 +84,17 @@ public class Program {
         aluno0.setDataMatricula(dataMatricula);
         aluno0.setNomeEscola(nomeEscola);
         aluno0.setDataMatricula(serieMatriculado);*/
-        String numDisciplinas = JOptionPane.showInputDialog("How much class you would like add? ");
+       // String numDisciplinas = JOptionPane.showInputDialog("How much class you would like add? ");
         
-        for(int pos = 1; pos <= Integer.valueOf(numDisciplinas); pos++){
+       // for(int pos = 1; pos <= Integer.valueOf(numDisciplinas); pos++){
+        for(int pos = 1; pos <= 1; pos++){
             String nomeDiscplina = JOptionPane.showInputDialog("Nome da Disciplina "+pos+"?");
             String notaDiscplina = JOptionPane.showInputDialog("Nota da Disciplina "+pos+"?");
 
             Disciplina disciplina = new Disciplina();
             disciplina.setDisciplina(nomeDiscplina);
             disciplina.setNota(Double.valueOf(notaDiscplina));
-            
+
 
 
             aluno0.getDisciplinas().add(disciplina);
@@ -137,7 +150,42 @@ public class Program {
     }else{
         JOptionPane.showMessageDialog(null, "Access no allowd");
     }
-}   
+
+}catch(NumberFormatException e){
+
+    StringBuilder out = new StringBuilder();
+
+    e.printStackTrace();/* Always put this because show up which line ocurred the error
+     Print Error java consol */
+    for(int pos = 0; pos < e.getStackTrace().length; pos++){
+        
+        out.append("\n Classe de Erro = " + e.getStackTrace()[pos].getClassName());
+        out.append("\n Metodo de Erro = " + e.getStackTrace()[pos].getMethodName());
+        out.append("\n Linha de Erro = " + e.getStackTrace()[pos].getLineNumber());
+        out.append("\n Class = " + e.getClass().getName());
+
+    }
+    JOptionPane.showMessageDialog(null,"Erro ao processar notas = " + out.toString());
+    //JOptionPane.showMessageDialog(null,"Erro ao processar notas = " + e.getMessage()); // This isn't good way to do this
+    
+}catch(NullPointerException e) {
+
+    //StringBuilder out = new StringBuilder();
+    JOptionPane.showMessageDialog(null,"Opá um Null Pointer Exception = " + e.getClass());
+  //  JOptionPane.showMessageDialog(null,"Opá um Null Pointer Exception = " + out.toString());
+}catch(Exception e){
+
+   e.getStackTrace();
+    StringBuilder out = new StringBuilder(e.getMessage());
+
+    JOptionPane.showMessageDialog(null,"Catch Erro Generic = " + out.toString() + "\n Class = "+ e.getClass().getName());
+    
+}finally{// always to be executed with error or not 
+    //Finally is always used when you need to execute some process acour a error or not
+    JOptionPane.showMessageDialog(null,"Thanks for learn Java with me");
+
+}
+}
 }
     
         
