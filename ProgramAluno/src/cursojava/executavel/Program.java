@@ -1,7 +1,7 @@
 package cursojava.executavel;
 
 import java.io.File;
-
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,8 +24,15 @@ public class Program {
 
         try{
 
-            File fil = new File("c://lines.txt"); // take out c:// you'll see the Error
-            Scanner sc = new Scanner(fil);
+            try{
+                File fil = new File("c://lines.txt"); // take out c:// you'll see the Error
+                Scanner sc = new Scanner(fil);
+
+            }catch(FileNotFoundException file){
+                file.getStackTrace();
+
+            }
+
             
 
         String login = JOptionPane.showInputDialog("Entre com a login");
@@ -100,7 +107,7 @@ public class Program {
             aluno0.getDisciplinas().add(disciplina);
         }
 
-        int escolha = JOptionPane.showConfirmDialog(null,"Deseja remover alguma discplina ? ");
+       /* int escolha = JOptionPane.showConfirmDialog(null,"Deseja remover alguma discplina ? ");
 
         if(escolha == 0){
 
@@ -116,7 +123,7 @@ public class Program {
             }
 
 
-        }
+        }*/
         alunos.add(aluno0);
     
         }
