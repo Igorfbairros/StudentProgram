@@ -10,9 +10,10 @@ import classeauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
 
 import entities.Aluno;
+import entities.Diretor;
 import entities.Disciplina;
-import entities.Secretario;
-import interfaces.PermitirAcesso;
+//import entities.Secretario;
+//import interfaces.PermitirAcesso;
 
 
 public class Program {
@@ -25,7 +26,8 @@ public class Program {
         // PermitirAcesso permitirAcesso = new Secretario(login, senha);
     
 
-        if(new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()){ //I will lock the contract to authorize only those who actually have the 100% legitimate contract
+       // if(new FuncaoAutenticacao(new Secretario(login, senha)).autenticar()){ //I will lock the contract to authorize only those who actually have the 100% legitimate contract
+        if(new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()){
 
 
             
@@ -79,6 +81,8 @@ public class Program {
             Disciplina disciplina = new Disciplina();
             disciplina.setDisciplina(nomeDiscplina);
             disciplina.setNota(Double.valueOf(notaDiscplina));
+            
+
 
             aluno0.getDisciplinas().add(disciplina);
         }
