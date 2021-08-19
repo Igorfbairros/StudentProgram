@@ -1,4 +1,4 @@
-package excecao;
+package executavel;
 
 public class ExcecaoProcessarNota extends Exception {
 

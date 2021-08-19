@@ -1,4 +1,4 @@
-package cursojava.executavel;
+package executavel;
 
 import entities.Aluno;
 import entities.Diretor;

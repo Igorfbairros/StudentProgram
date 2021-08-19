@@ -1,4 +1,4 @@
-package cursojava.executavel;
+package executavel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,28 +10,18 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import classeauxiliares.FuncaoAutenticacao;
-import cursojava.constantes.StatusAluno;
-
+import constantes.StatusAluno;
 import entities.Aluno;
 import entities.Diretor;
 import entities.Disciplina;
-//import entities.Secretario;
-//import interfaces.PermitirAcesso;
 
 
 public class Program {
     public static void main(String[] args) {
 
         try{
+            lerArquivo();
 
-            try{
-                File fil = new File("c://lines.txt"); // take out c:// you'll see the Error
-                Scanner sc = new Scanner(fil);
-
-            }catch(FileNotFoundException file){
-                file.getStackTrace();
-
-            }
 
             
 
@@ -100,7 +90,7 @@ public class Program {
 
             Disciplina disciplina = new Disciplina();
             disciplina.setDisciplina(nomeDiscplina);
-            disciplina.setNota(Double.valueOf(notaDiscplina));
+            //disciplina.setNota(Double.valueOf(notaDiscplina));
 
 
 
@@ -135,6 +125,7 @@ public class Program {
             
             if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.APROVADO)){
                 maps.get(StatusAluno.APROVADO).add(aluno);
+                
             }else if(aluno.getAlunoAprovado().equalsIgnoreCase(StatusAluno.RECUPERACAO)){
                 maps.get(StatusAluno.RECUPERACAO).add(aluno);
             }else{
@@ -180,18 +171,27 @@ public class Program {
     //StringBuilder out = new StringBuilder();
     JOptionPane.showMessageDialog(null,"Opá um Null Pointer Exception = " + e.getClass());
   //  JOptionPane.showMessageDialog(null,"Opá um Null Pointer Exception = " + out.toString());
-}catch(Exception e){
-
-   e.getStackTrace();
+}catch(ExcecaoProcessarNota e){
+    e.getStackTrace();
     StringBuilder out = new StringBuilder(e.getMessage());
 
-    JOptionPane.showMessageDialog(null,"Catch Erro Generic = " + out.toString() + "\n Class = "+ e.getClass().getName());
+    JOptionPane.showMessageDialog(null,"Erro da exceção customisada = " + out.toString() + "\n Class = "+ e.getClass().getName());
     
 }finally{// always to be executed with error or not 
     //Finally is always used when you need to execute some process acour a error or not
     JOptionPane.showMessageDialog(null,"Thanks for learn Java with me");
 
 }
+}
+
+public static void lerArquivo() throws ExcecaoProcessarNota {
+    try{
+        File fil = new File("c://lines.txt"); // take out c:// you'll see the Error
+        Scanner sc = new Scanner(fil);
+
+    }catch(FileNotFoundException e){
+        throw new ExcecaoProcessarNota(e.getMessage());
+    }
 }
 }
     

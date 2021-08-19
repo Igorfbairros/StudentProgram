@@ -1,4 +1,4 @@
-package cursojava.constantes;
+package constantes;
 
 public class StatusAluno {
     public static String APROVADO = "Aprovado";
