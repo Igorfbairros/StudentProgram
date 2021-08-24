@@ -30,47 +30,49 @@ public class ArrayVetor1 {
 
 
         aluno0.getDisciplinas().add(disciplina1);
-        
-      System.out.println("Nome do Aluno: "+ aluno0.getNome() + "\nNome da Escola: "+ aluno0.getNomeEscola());
-      
-      for(Disciplina d : aluno0.getDisciplinas()){
-        System.out.println("=================== Disciplina do Aluno ================");
 
-        System.out.println("Disciplina: " + d.getDisciplina());
-        System.out.println("Notas das Discplinas são");
+        /*Criação do Aluno*/
+        Aluno aluno1 = new Aluno();
+        aluno1.setNome("Igor F Bairros 2");
+        aluno1.setNomeEscola("JEV Treinamentos");
 
-        double notaMin = 0.0;
-        double notaMax = 0.0;
-        for(int i = 0; i < d.getNota().length; i++){
-          System.out.println("Notas: N°"+(i + 1)+ " = " + d.getNota()[i]);
 
-          if(notaMin == 0){
-            notaMin = d.getNota()[i];
-          }else{
-            if(d.getNota()[i] < notaMin){
-              notaMin = d.getNota()[i];
-              
+        /*Criação da Disciplina*/
+        Disciplina disciplina2 = new Disciplina();
+        disciplina2.setDisciplina("Curso JAVA");
+        disciplina2.setNota(notasJava);
+
+        aluno1.getDisciplinas().add(disciplina2);
+
+
+        Disciplina disciplina3 = new Disciplina();
+        disciplina3.setDisciplina("Logica de Programação");
+        disciplina3.setNota(LogicaDeProgramacao);
+
+
+        aluno1.getDisciplinas().add(disciplina3);
+
+        Aluno[] arrayAluno = new Aluno[2];
+
+        arrayAluno[0] = aluno0;
+        arrayAluno[1] = aluno1;
+
+        for(int i = 0; i < arrayAluno.length; i++){
+          System.out.println("+++++++++++++++++++++++++++++++++++++");
+          System.out.println("Nome do Aluno: "+ arrayAluno[i].getNome());
+
+          for(Disciplina d: arrayAluno[i].getDisciplinas()){
+            System.out.println("Disciplina do Aluno: " + d.getDisciplina());
+
+            for(int posnota = 0; posnota < d.getNota().length; posnota++){
+              System.out.println("A nota número: N°"+ (posnota + 1)+ " é igual " + d.getNota()[posnota]);
+
             }
+
           }
-
-          if(notaMax == 0){
-            notaMax = d.getNota()[i];
-          }else{
-            if(d.getNota()[i] > notaMax){
-              notaMax = d.getNota()[i];
-              
-            }
-          }
-
-
         }
-
-        System.out.println("A maior nota da Disciplina: "+ d.getDisciplina() + ": "+ notaMax);
-        System.out.println("A menor nota da Disciplina: "+ d.getDisciplina() + ": "+ notaMin);
-
         
-        
-
+      
       }
 
   }      
@@ -83,4 +85,4 @@ public class ArrayVetor1 {
 
     
     
-}
+
